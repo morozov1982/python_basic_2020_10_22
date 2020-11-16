@@ -51,8 +51,7 @@ class Cell:
         result = self.num_cells - other.num_cells
         if result > 0:
             return Cell(result)
-        else:
-            return 'Недопустимый результат: разность количества ячеек двух клеток меньше нуля!'
+        raise ValueError('Недопустимый результат: разность количества ячеек двух клеток меньше нуля!')
 
     def __mul__(self, other):
         return Cell(self.num_cells * other.num_cells)
@@ -80,8 +79,8 @@ if __name__ == '__main__':
 
     body4 = body3 - body1
     print(body4.make_order(3))
-    body5 = body1 - body2
-    print(body5)
+    # body5 = body1 - body2  # ошибка, проверяем
+    # print(body5)
 
     body6 = body1 * body2
     print(body6.make_order(4))
