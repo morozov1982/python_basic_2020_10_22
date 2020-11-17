@@ -60,15 +60,14 @@ class Cell:
         return Cell(self.num_cells // other.num_cells)
 
     def make_order(self, partition):
-        try:
-            num_partitions = self.num_cells // partition
-            last_partition = self.num_cells % partition
-            order = r'\n'.join(['*' * partition for _ in range(num_partitions)])
-            if last_partition:
-                order += r'\n' + '*' * last_partition
-            return order
-        except AttributeError as e:
-            return e + 'sdfs'
+        if not isinstance(partition, int):
+            raise TypeError('Принимаются только целочисленные значения!')
+        num_partitions = self.num_cells // partition
+        last_partition = self.num_cells % partition
+        order = r'\n'.join(['*' * partition for _ in range(num_partitions)])
+        if last_partition:
+            order += r'\n' + '*' * last_partition
+        return order
 
 
 if __name__ == '__main__':
