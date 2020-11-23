@@ -33,7 +33,7 @@ class Car:
         if direction in __directions:
             print(f'Машина движется {__directions[direction]}')
         else:
-            print(f'Аттеншн: туда ваш(-а/-е) {self.name} не поедет!')
+            raise Exception(f'Аттеншн: туда ваш(-а/-е) {self.name} не поедет!')
 
     def show_speed(self):
         print(f'Скорость: {self.speed}')
